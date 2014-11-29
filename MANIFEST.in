@@ -1,0 +1,4 @@
+include *.py
+include hmp/countries_all
+include LICENSE README.md
+exclude MANIFEST.in
