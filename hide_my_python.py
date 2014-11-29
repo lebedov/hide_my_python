@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# 	-*- coding: utf8 -*-
+# 	-*- coding: utf-8 -*-
 #
 # 	HideMyPython! - A parser for the free proxy list on HideMyAss!
 #
@@ -21,10 +21,12 @@
 # 	You should have received a copy of the GNU General Public License
 # 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
+
 import sys
-import arguments
-import parser
-import database
+import hmp.arguments as arguments
+import hmp.parser as parser
+import hmp.database as database
 
 def main():
 	# We create an argument parser

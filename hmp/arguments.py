@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# 	-*- coding: utf8 -*-
+# 	-*- coding: utf-8 -*-
 #
 # 	HideMyPython! - A parser for the free proxy list on HideMyAss!
 #
@@ -23,9 +23,14 @@
 # 	You should have received a copy of the GNU General Public License
 # 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
+
 import os
 import sys
 import argparse
+
+from pkg_resources import resource_filename
+countries_all = resource_filename(__name__, 'countries_all')
 
 def create_argument_parser():
 	arg_parser = argparse.ArgumentParser(
@@ -46,7 +51,7 @@ def create_argument_parser():
 
 	# The user can specify a list of countries
 	arg_parser.add_argument('-ct',
-            default='{0}/countries_all'.format(os.path.dirname(sys.argv[0])),
+            default=countries_all,
 			dest='countries_file', type=argparse.FileType('r'),
 			help='file containing the countries where the '
 					'proxies can be based (default: %(default)s)')

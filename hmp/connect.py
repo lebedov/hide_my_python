@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#   -*- coding: utf8 -*-
+#   -*- coding: utf-8 -*-
 #
 #   HideMyPython! - A parser for the free proxy list on HideMyAss!
 #
