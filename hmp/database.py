@@ -62,5 +62,8 @@ def write_to_csv(writer, proxy):
 
 def initialize_csv(csv_file):
     # Create CSV writer:
-    f = open(csv_file, 'w')
+    if csv_file:
+            f = open(csv_file, 'w')
+    else:
+            f = sys.stdout
     return f, csv.writer(f)

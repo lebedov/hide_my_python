@@ -41,13 +41,12 @@ def create_argument_parser():
 
 	# The user has to specify an output file
 	arg_parser.add_argument('-o', dest='database_file', type=str,
-			required=True,
-			help='database file where the proxies will be saved')
+			help='database file where the proxies will be saved (default: stdout)')
 
         # Output file format:
         arg_parser.add_argument('-f', dest='output_format', type=str,
-                                choices=['csv', 'sqlite3'], default='sqlite',
-                                help='format of output file (default: sqlite3)')
+                                choices=['csv', 'sqlite3'], default='csv',
+                                help='format of output file (default: csv)')
 
 	# The user can specify a maximum number of proxies to retrieve
 	arg_parser.add_argument('-n', dest='number_of_proxies', type=int,
@@ -112,6 +111,9 @@ def process_arguments(args, arg_parser):
 				+ '(a positive integer is required): {1}'
 		error_msg = error_msg.format('-n', args.number_of_proxies)
 		arg_parser.error(error_msg)
+
+        if not args.database_file and args.output_format == 'sqlite3':
+                arg_parser.error('cannot write sqlite3 file to stdout')
 
 	# We retrieve the countries from the given file
 	args.countries_list = []

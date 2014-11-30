@@ -89,7 +89,8 @@ To see a list of the options, just issue:
 
 ### Database file
 
-The proxies will be saved in this file. If the file doesn't exist, it will be
+The proxies will be saved in this file. If no file is specified, the proxies are
+written to the screen in CSV format. If the file doesn't exist, it will be
 created. If it exists, the proxies will be appended to it (the file won't be
 overwritten). The database contains only one table, named `proxies`, with the
 following structure:
@@ -106,7 +107,7 @@ following structure:
 ### Database file format
 
 This option can be used to choose whether to save the proxies 
-in a sqlite3 file or a CSV file.
+in a sqlite3 file or a CSV file. Only CSV data may be written to the screen.
 
 ### Number of proxies
 
