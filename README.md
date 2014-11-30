@@ -246,11 +246,18 @@ parsing.
 	[info] speed: ['Medium', 'High']
 	[info] retrieved 100/100 proxies
 
+### API
+
+Other Python programs can access HideMyPython's functionality via the
+`hmp.api.get_proxies()` function. Proxies are returned as a list of tuples, each
+of which contains the proxy ip, port, type, country, anonymity, and speed.
+
 ## COPYRIGHT
 
 HideMyPython! - A parser for the free proxy list on HideMyAss!
 
 Yannick Méheut [useless (at) utouch (dot) fr] - Copyright © 2013
+Lev Givon [lev (at) columbia (dot) edu] - Copyright © 2014
 
 This program is free software: you can redistribute it and/or modify it 
 under the terms of the GNU General Public License as published by the 
