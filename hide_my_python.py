@@ -29,7 +29,7 @@ import hmp.parser as parser
 import hmp.database as database
 
 def main():
-	# We create an argument parser
+        # We create an argument parser
 	arg_parser = arguments.create_argument_parser()
 
 	# We parse the arguments
@@ -40,23 +40,33 @@ def main():
 	if args.verbose:
 		arguments.print_arguments(args)
 
-	# We open the database file where the proxies will be stored
-	connection, cursor = database.initialize_database(args.database_file)
+        if args.output_format == 'sqlite3':
+                # We open the database file where the proxies will be stored
+                connection, cursor = database.initialize_database(args.database_file)
 
-	try:
-		# We generate the proxies
-		for proxy in parser.generate_proxy(args):
-			# And we store them in the database
-			database.insert_in_database(cursor, proxy)
-	except KeyboardInterrupt:
-		if args.verbose:
-			print('')
-			print('[warn] received interruption signal')
+                try:
+                        # We generate the proxies
+                        for proxy in parser.generate_proxy(args):
+                                # And we store them in the database
+                                database.insert_in_database(cursor, proxy)
+                except KeyboardInterrupt:
+                        if args.verbose:
+                                print('')
+                                print('[warn] received interruption signal')
 
-	# We save the changes made to the database, and close the file
-	connection.commit()
-	connection.close()
-
+                # We save the changes made to the database, and close the file
+                connection.commit()
+                connection.close()
+        else:
+                f, writer = database.initialize_csv(args.database_file)
+                try:
+                        for proxy in parser.generate_proxy(args):
+                                database.write_to_csv(writer, proxy)
+                except KeyboardInterrupt:
+                        if args.verbose:
+                                print('')
+                                print('[warn] received interruption signal')
+                f.close()
 	return 0
 
 if __name__ == '__main__':

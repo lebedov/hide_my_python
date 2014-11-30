@@ -48,7 +48,8 @@ Don't forget to make the script executable with:
 To see a list of the options, just issue:
 
 	./hide_my_python.py -h
-	usage: hide_my_python [-h] -o DATABASE_FILE [-n NUMBER_OF_PROXIES]
+	usage: hide_my_python [-h] -o DATABASE_FILE [-f {csv,sqlite3}]
+	       		      	      		  [-n NUMBER_OF_PROXIES]
 						  [-ct COUNTRIES_FILE] [-p PORTS [PORTS ...]]
 						  [-pr {http,https,socks} [{http,https,socks} ...]] [-a]
 						  [-ka] [-s] [-c] [-v]
@@ -58,6 +59,7 @@ To see a list of the options, just issue:
 	optional arguments:
 	  -h, --help            show this help message and exit
 	  -o DATABASE_FILE      database file where the proxies will be saved
+	  -f {csv,sqlite3}      format of output file (default: sqlite3)
 	  -n NUMBER_OF_PROXIES  maximum number of proxies to retrieve (default: all)
 	  -ct COUNTRIES_FILE    file containing the countries where the proxies can be
 							based (default: countries_all)
@@ -100,6 +102,11 @@ following structure:
 * `anonymity`: the anonymity level guarantied by the proxy (type: `TEXT`)
 * `speed`: the speed level of the proxy (type: `TEXT`)
 * `connection_time`: the connection time of the proxy (type: `TEXT`)
+
+### Database file format
+
+This option can be used to choose whether to save the proxies 
+in a sqlite3 file or a CSV file.
 
 ### Number of proxies
 

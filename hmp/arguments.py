@@ -44,6 +44,11 @@ def create_argument_parser():
 			required=True,
 			help='database file where the proxies will be saved')
 
+        # Output file format:
+        arg_parser.add_argument('-f', dest='output_format', type=str,
+                                choices=['csv', 'sqlite3'], default='sqlite',
+                                help='format of output file (default: sqlite3)')
+
 	# The user can specify a maximum number of proxies to retrieve
 	arg_parser.add_argument('-n', dest='number_of_proxies', type=int,
 			default=0,

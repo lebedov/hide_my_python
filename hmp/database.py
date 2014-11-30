@@ -20,6 +20,7 @@
 # 	You should have received a copy of the GNU General Public License
 # 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import csv
 import sys
 import sqlite3
 
@@ -56,3 +57,10 @@ def initialize_database(database_file):
 	# We return the connection to the database
 	return connection, cursor
 
+def write_to_csv(writer, proxy):
+    writer.writerow(proxy)
+
+def initialize_csv(csv_file):
+    # Create CSV writer:
+    f = open(csv_file, 'w')
+    return f, csv.writer(f)
