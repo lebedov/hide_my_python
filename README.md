@@ -257,6 +257,7 @@ of which contains the proxy ip, port, type, country, anonymity, and speed.
 HideMyPython! - A parser for the free proxy list on HideMyAss!
 
 Yannick Méheut [useless (at) utouch (dot) fr] - Copyright © 2013
+
 Lev Givon [lev (at) columbia (dot) edu] - Copyright © 2014
 
 This program is free software: you can redistribute it and/or modify it 
